@@ -5,3 +5,9 @@ btn?.addEventListener("click", function(){
 })
 
 btn // ya no lo entiende como nulo
+
+// -------------ASSERTIONS---------------------
+// permiten tratar un valor como otro tipo
+let mystery: unknown = 'Hello world';
+
+const numCharacters = (mystery as string).length
