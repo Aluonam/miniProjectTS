@@ -1,7 +1,7 @@
 const btn = document.getElementById("btn")! as HTMLButtonElement; // ! añadir ! Es un operador tipográfico. Lo pones después de alguna expresión que podría ser null y TypeScript asumirá que no es null. que 
 const input = document.getElementById("todoinput")! as HTMLInputElement; 
 const form = document.querySelector("form")!;
-const list = document.getElementById("todolist")
+const list = document.getElementById("todolist")!;
 
 
 // form.addEventListener("submit", function(e){
@@ -13,8 +13,13 @@ const list = document.getElementById("todolist")
 function handleSubmit(e: SubmitEvent){
         e.preventDefault();
         const newToDoText = input.value;
-        const newLi = document.createElement("Li");
-        newLi.append(newToDoText);
+        const newLI = document.createElement("LI");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        newLI.append(checkbox)
+        newLI.append(newToDoText);
+        list?.append(newLI); // por si es nulo
+        input.value = "";
     }
 
 form.addEventListener("submit", handleSubmit)
